@@ -13,6 +13,6 @@ function circle(x, y, r){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
-  c.arc(x, y, r, 0, 7);
+  c.arc(x, y, r, 0, 7, false);
   c.stroke();
 }
