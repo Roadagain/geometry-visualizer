@@ -3,9 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>GV</title>
+  <style>
+    <!--
+    canvas { float: left; margin: 10px; }
+    input[type="number"] { width: 10ex; }
+    -->
+  </style>
 </head>
 <body>
   <canvas id="c" height="500px" width="500px" style="border: 1px black solid"></canvas>
+  <form id="line">
+    x1:<input type="number" id="lX1">
+    y1:<input type="number" id="lY1">
+    x2:<input type="number" id="lX2">
+    y2:<input type="number" id="lY2">
+    <button type="button" id="lButton">line</button>
+  </form>
+  <form id="triangle">
+    x1:<input type="number" id="tX1">
+    y1:<input type="number" id="tY1">
+    x2:<input type="number" id="tX2">
+    y2:<input type="number" id="tY2">
+    x3:<input type="number" id="tX3">
+    y3:<input type="number" id="tY3">
+    <input type="checkbox" id="tFill" value="1">fill
+    <button type="button" id="tButton">triangle</button>
+  </form>
+  <form id="retangle">
+    x1:<input type="number" id="rX1">
+    y1:<input type="number" id="rY1">
+    x2:<input type="number" id="rX2">
+    y2:<input type="number" id="rY2">
+    <input type="checkbox" id="rFill" value="1">fill
+    <button type="button" id="rButton">rectangle</button>
+  </form>
   <script src="visualizer.js"></script>
   <script src="data.js?"></script>
 </body>
