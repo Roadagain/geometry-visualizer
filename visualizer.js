@@ -54,6 +54,12 @@ function rectangle(x1, y1, x2, y2, fill){
 function coordinateAxis(){
   line(0, 250, 500, 250);
   line(250, 0, 250, 500);
+  for (var i = 50; i < 250; i += 50){
+    line(i, 240, i, 260);
+    line(240, i, 260, i);
+    line(500 - i, 240, 500 - i, 260);
+    line(240, 500 - i, 260, 500 - i);
+  }
 }
 
 (function(){
