@@ -59,5 +59,15 @@ function rectangle(x1, y1, x2, y2, fill){
       var y2 = document.getElementById('lY2').value;
       line(x1, y1, x2, y2);
     });
+    document.getElementById('tButton').addEventListener('click', function(){
+      var x1 = document.getElementById('tX1').value;
+      var y1 = document.getElementById('tY1').value;
+      var x2 = document.getElementById('tX2').value;
+      var y2 = document.getElementById('tY2').value;
+      var x3 = document.getElementById('tX3').value;
+      var y3 = document.getElementById('tY3').value;
+      var fill = document.getElementById('tFill').checked;
+      triangle(x1, y1, x2, y2, x3, y3, fill);
+    });
   });
 })();
