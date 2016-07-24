@@ -69,5 +69,13 @@ function rectangle(x1, y1, x2, y2, fill){
       var fill = document.getElementById('tFill').checked;
       triangle(x1, y1, x2, y2, x3, y3, fill);
     });
+    document.getElementById('rButton').addEventListener('click', function(){
+      var x1 = document.getElementById('rX1').value;
+      var y1 = document.getElementById('rY1').value;
+      var x2 = document.getElementById('rX2').value;
+      var y2 = document.getElementById('rY2').value;
+      var fill = document.getElementById('rFill').checked;
+      rectangle(x1, y1, x2, y2, fill);
+    });
   });
 })();
