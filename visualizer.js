@@ -51,10 +51,16 @@ function rectangle(x1, y1, x2, y2, fill){
   c.stroke();
 }
 
+function coordinateAxis(){
+  line(0, 250, 500, 250);
+  line(250, 0, 250, 500);
+}
+
 (function(){
   'use strict';
 
   window.addEventListener('load', function(){
+    coordinateAxis();
     document.getElementById('lButton').addEventListener('click', function(){
       var x1 = document.getElementById('lX1').value;
       var y1 = document.getElementById('lY1').value;
