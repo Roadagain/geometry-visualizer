@@ -50,7 +50,10 @@ function rectangle(x1, y1, x2, y2, fill){
   }
   c.stroke();
 }
+
 (function(){
+  'use strict';
+
   window.addEventListener('load', function(){
     document.getElementById('lButton').addEventListener('click', function(){
       var x1 = document.getElementById('lX1').value;
