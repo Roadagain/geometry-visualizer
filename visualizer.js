@@ -90,8 +90,8 @@ function grid() {
   'use strict';
 
   window.addEventListener('load', function(){
-    coordinateAxis();
-    grid();
+    // coordinateAxis();
+    // grid();
     document.getElementById('lButton').addEventListener('click', function(){
       var x1 = document.getElementById('lX1').value | 0;
       var y1 = document.getElementById('lY1').value | 0;
