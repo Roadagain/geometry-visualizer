@@ -109,6 +109,13 @@ function setBackgroundImage(bg){
       var y2 = document.getElementById('lY2').value | 0;
       line(x1, y1, x2, y2);
     });
+    document.getElementById('cButton').addEventListener('click', function(){
+      var x = document.getElementById('cX').value | 0;
+      var y = document.getElementById('cY').value | 0;
+      var r = document.getElementById('cR').value | 0;
+      var fill = document.getElementById('cFill').checked;
+      circle(x, y, r, fill);
+    });
     document.getElementById('tButton').addEventListener('click', function(){
       var x1 = document.getElementById('tX1').value | 0;
       var y1 = document.getElementById('tY1').value | 0;
