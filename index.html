@@ -5,7 +5,7 @@
   <title>GV</title>
   <style>
     <!--
-    canvas { float: left; margin: 10px; }
+    canvas { float: left; margin: 10px; background-image: url("axis.svg"), url("scale.svg"), url("grid.svg"); }
     input[type="number"] { width: 10ex; }
     -->
   </style>
@@ -36,6 +36,11 @@
     y2:<input type="number" id="rY2">
     <input type="checkbox" id="rFill" value="1">fill
     <button type="button" id="rButton">rectangle</button>
+  </form>
+  <form id="background">
+    <input type="checkbox" id="bAxis" value="1" checked>axis
+    <input type="checkbox" id="bScale" value="1" checked>scale
+    <input type="checkbox" id="bGrid" value="1" checked>grid
   </form>
   <script src="visualizer.js"></script>
   <script src="data.js?"></script>
