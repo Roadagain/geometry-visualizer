@@ -65,8 +65,8 @@ function coordinateAxis(){
 
 function grid() {
   for (var i = 50; i < 500; i += 50){
-    line(0, i, 500, i, '#f0f0f0');
-    line(i, 0, i, 500, '#f0f0f0');
+    line(0, i, 500, i, 'gainsboro');
+    line(i, 0, i, 500, 'gainsboro');
   }
 }
 
