@@ -65,11 +65,19 @@ function coordinateAxis(){
   }
 }
 
+function grid() {
+  for (var i = 50; i < 500; i += 50){
+    line(0, i, 500, i, '#f0f0f0');
+    line(i, 0, i, 500, '#f0f0f0');
+  }
+}
+
 (function(){
   'use strict';
 
   window.addEventListener('load', function(){
     coordinateAxis();
+    grid();
     document.getElementById('lButton').addEventListener('click', function(){
       var x1 = document.getElementById('lX1').value;
       var y1 = document.getElementById('lY1').value;
