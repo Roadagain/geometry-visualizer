@@ -86,6 +86,16 @@ function grid() {
   }
 }
 
+function setBackgroundImage(bg){
+  'use strict';
+
+  var c = document.getElementById('c');
+  var bgString = Object.keys(bg).map(function(key){
+    return 'url(' + (bg[key] ? key + '.svg' : '') + ')';
+  }).join(',');
+  c.style.backgroundImage = bgString;
+}
+
 (function(){
   'use strict';
 
@@ -116,6 +126,24 @@ function grid() {
       var y2 = document.getElementById('rY2').value | 0;
       var fill = document.getElementById('rFill').checked;
       rectangle(x1, y1, x2, y2, fill);
+    });
+
+    var bg = {
+      axis: true,
+      scale: true,
+      grid: true
+    };
+    document.getElementById('bAxis').addEventListener('change', function(e){
+      bg.axis = e.target.checked;
+      setBackgroundImage(bg);
+    });
+    document.getElementById('bScale').addEventListener('change', function(e){
+      bg.scale = e.target.checked;
+      setBackgroundImage(bg);
+    });
+    document.getElementById('bGrid').addEventListener('change', function(e){
+      bg.grid = e.target.checked;
+      setBackgroundImage(bg);
     });
   });
 })();
