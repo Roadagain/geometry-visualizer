@@ -1,7 +1,10 @@
-function line(x1, y1, x2, y2){
+function line(x1, y1, x2, y2, color){
   'use strict';
 
   var c = document.getElementById('c').getContext('2d');
+  if (color){
+    c.strokeStyle = color;
+  }
   c.beginPath();
   c.moveTo(x1, y1);
   c.lineTo(x2, y2);
