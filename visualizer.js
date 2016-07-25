@@ -55,13 +55,13 @@ function rectangle(x1, y1, x2, y2, fill){
 }
 
 function coordinateAxis(){
-  line(0, 250, 500, 250);
-  line(250, 0, 250, 500);
+  line(0, 250, 500, 250, 'dakgray');
+  line(250, 0, 250, 500, 'dakgray');
   for (var i = 50; i < 250; i += 50){
-    line(i, 245, i, 255);
-    line(245, i, 255, i);
-    line(500 - i, 245, 500 - i, 255);
-    line(245, 500 - i, 255, 500 - i);
+    line(i, 245, i, 255, 'dakgray');
+    line(245, i, 255, i, 'dakgray');
+    line(500 - i, 245, 500 - i, 255, 'dakgray');
+    line(245, 500 - i, 255, 500 - i, 'dakgray');
   }
 }
 
