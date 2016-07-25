@@ -4,6 +4,10 @@ function line(x1, y1, x2, y2, color){
   var c = document.getElementById('c').getContext('2d');
   c.strokeStyle = color || 'black';
   c.beginPath();
+  x1 += 250;
+  y1 = -y1 + 250;
+  x2 += 250;
+  y2 = -y2 + 250;
   c.moveTo(x1, y1);
   c.lineTo(x2, y2);
   c.stroke();
@@ -14,6 +18,8 @@ function circle(x, y, r, fill){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
+  x += 250;
+  y = -y + 250;
   c.arc(x, y, r, 0, 7, false);
   if (fill){
     c.fill();
@@ -26,6 +32,12 @@ function triangle(x1, y1, x2, y2, x3, y3, fill){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
+  x1 += 250;
+  y1 = -y1 + 250;
+  x2 += 250;
+  y2 = -y2 + 250;
+  x3 += 250;
+  y3 = -y3 + 250;
   c.moveTo(x1, y1);
   c.lineTo(x2, y2);
   c.lineTo(x3, y3);
@@ -41,6 +53,10 @@ function rectangle(x1, y1, x2, y2, fill){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
+  x1 += 250;
+  y1 = -y1 + 250;
+  x2 += 250;
+  y2 = -y2 + 250;
   c.moveTo(x1, y1);
   c.lineTo(x2, y1);
   c.lineTo(x2, y2);
@@ -53,20 +69,20 @@ function rectangle(x1, y1, x2, y2, fill){
 }
 
 function coordinateAxis(){
-  line(0, 250, 500, 250, 'dakgray');
-  line(250, 0, 250, 500, 'dakgray');
-  for (var i = 50; i < 250; i += 50){
-    line(i, 245, i, 255, 'dakgray');
-    line(245, i, 255, i, 'dakgray');
-    line(500 - i, 245, 500 - i, 255, 'dakgray');
-    line(245, 500 - i, 255, 500 - i, 'dakgray');
+  line(-250, 0, 250, 0, 'dakgray');
+  line(0, -250, 0, 250, 'dakgray');
+  for (var i = -200; i < 0; i += 50){
+    line(i, -5, i, 5, 'dakgray');
+    line(-5, i, 5, i, 'dakgray');
+    line(i + 250, -5, i + 250, 5, 'dakgray');
+    line(-5, i + 250, 5, i + 250, 'dakgray');
   }
 }
 
 function grid() {
-  for (var i = 50; i < 500; i += 50){
-    line(0, i, 500, i, 'gainsboro');
-    line(i, 0, i, 500, 'gainsboro');
+  for (var i = -250; i < 250; i += 50){
+    line(-250, i, 250, i, 'gainsboro');
+    line(i, -250, i, 250, 'gainsboro');
   }
 }
 
