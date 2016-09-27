@@ -5,13 +5,19 @@
   <title>GV</title>
   <style>
     <!--
-    canvas { float: left; margin: 10px; background-image: url("axis.svg"), url("scale.svg"), url("grid.svg"); }
+    canvas {
+      width: 500px;
+      height: 500px;
+      margin: 10px;
+      background-image: url("axis.svg"), url("scale.svg"), url("grid.svg");
+      border: 1px black solid;
+    }
     input[type="number"] { width: 10ex; }
     -->
   </style>
 </head>
 <body>
-  <canvas id="c" height="500px" width="500px" style="border: 1px black solid"></canvas>
+  <canvas id="c"></canvas>
   <form id="line">
     x1:<input type="number" id="lX1">
     y1:<input type="number" id="lY1">
