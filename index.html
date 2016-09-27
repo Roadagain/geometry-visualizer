@@ -5,6 +5,7 @@
   <title>GV</title>
   <style>
     <!--
+    .float { float: left; }
     canvas {
       width: 500px;
       height: 500px;
@@ -13,11 +14,19 @@
       border: 1px black solid;
     }
     input[type="number"] { width: 10ex; }
+    .float { float: left; }
     -->
   </style>
 </head>
 <body>
-  <canvas id="c"></canvas>
+  <div class="float">
+    <canvas id="c"></canvas>
+    <form id="background">
+      <input type="checkbox" id="bAxis" value="1" checked>axis
+      <input type="checkbox" id="bScale" value="1" checked>scale
+      <input type="checkbox" id="bGrid" value="1" checked>grid
+    </form>
+  </div>
   <form id="line">
     x1:<input type="number" id="lX1">
     y1:<input type="number" id="lY1"><br>
@@ -53,12 +62,7 @@
     <input type="checkbox" id="rFill" value="1">fill
     <button type="button" id="rButton">rectangle</button>
   </form>
-  <form id="background">
   <hr>
-    <input type="checkbox" id="bAxis" value="1" checked>axis
-    <input type="checkbox" id="bScale" value="1" checked>scale
-    <input type="checkbox" id="bGrid" value="1" checked>grid
-  </form>
   <script src="visualizer.js"></script>
   <script src="data.js?"></script>
 </body>
