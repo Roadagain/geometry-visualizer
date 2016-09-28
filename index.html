@@ -7,8 +7,6 @@
     <!--
     .float { float: left; }
     canvas {
-      width: 500px;
-      height: 500px;
       margin: 10px;
       background-image: url("axis.svg"), url("scale.svg"), url("grid.svg");
       border: 1px black solid;
@@ -20,7 +18,7 @@
 </head>
 <body>
   <div class="float">
-    <canvas id="c"></canvas>
+    <canvas id="c" width="500px" height="500px"></canvas>
     <form id="background">
       <input type="checkbox" id="bAxis" value="1" checked>axis
       <input type="checkbox" id="bScale" value="1" checked>scale
