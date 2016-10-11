@@ -4,10 +4,6 @@ function line(x1, y1, x2, y2, color){
   var c = document.getElementById('c').getContext('2d');
   c.strokeStyle = color || 'black';
   c.beginPath();
-  x1 += 250;
-  y1 = -y1 + 250;
-  x2 += 250;
-  y2 = -y2 + 250;
   c.moveTo(x1, y1);
   c.lineTo(x2, y2);
   c.stroke();
@@ -18,8 +14,6 @@ function circle(x, y, r, fill){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
-  x += 250;
-  y = -y + 250;
   c.arc(x, y, r, 0, 7, false);
   if (fill){
     c.fill();
@@ -32,8 +26,6 @@ function polygon(xs, ys, fill){
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
-  xs = xs.map(function(x){ return x + 250; });
-  ys = ys.map(function(y){ return -y + 250; });
   c.moveTo(xs[0], ys[0]);
   for (var i = 1; i < xs.length; i++){
     c.lineTo(xs[i], ys[i]);
@@ -88,8 +80,8 @@ function setBackgroundImage(bg){
 function getPoint(shape, num){
   'use strict';
 
-  var x = Number(document.getElementById(shape + 'X' + num).value);
-  var y = Number(document.getElementById(shape + 'Y' + num).value);
+  var x = 250 + Number(document.getElementById(shape + 'X' + num).value);
+  var y = 250 - Number(document.getElementById(shape + 'Y' + num).value);
   return [x, y];
 }
 
