@@ -49,24 +49,6 @@ function rectangle(x1, y1, x2, y2, fill){
   polygon([x1, x2, x2, x1], [y1, y1, y2, y2], fill);
 }
 
-function coordinateAxis(){
-  line(-250, 0, 250, 0, 'dakgray');
-  line(0, -250, 0, 250, 'dakgray');
-  for (var i = -200; i < 0; i += 50){
-    line(i, -5, i, 5, 'dakgray');
-    line(-5, i, 5, i, 'dakgray');
-    line(i + 250, -5, i + 250, 5, 'dakgray');
-    line(-5, i + 250, 5, i + 250, 'dakgray');
-  }
-}
-
-function grid() {
-  for (var i = -250; i < 250; i += 50){
-    line(-250, i, 250, i, 'gainsboro');
-    line(i, -250, i, 250, 'gainsboro');
-  }
-}
-
 function setBackgroundImage(bg){
   'use strict';
 
