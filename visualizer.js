@@ -94,7 +94,7 @@ function isFill(shape){
       var [xs, ys] = getPoints('r', 2);
       var fill = isFill('r');
       xs = [xs[0], xs[0], xs[1], xs[1]];
-      ys = ys.concat(ys.reverse());
+      ys = ys.concat(ys.slice().reverse());
       polygon(xs, ys, fill);
     });
 
