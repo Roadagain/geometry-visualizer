@@ -37,18 +37,6 @@ function polygon(xs, ys, fill){
   c.stroke();
 }
 
-function triangle(x1, y1, x2, y2, x3, y3, fill){
-  'use strict';
-
-  polygon([x1, x2, x3], [y1, y2, y3], fill);
-}
-
-function rectangle(x1, y1, x2, y2, fill){
-  'use strict';
-
-  polygon([x1, x2, x2, x1], [y1, y1, y2, y2], fill);
-}
-
 function setBackgroundImage(bg){
   'use strict';
 
@@ -97,13 +85,13 @@ function isFill(shape){
       var [x2, y2] = getPoint('t', 2);
       var [x3, y3] = getPoint('t', 3);
       var fill = isFill('t');
-      triangle(x1, y1, x2, y2, x3, y3, fill);
+      polygon([x1, x2, x3], [y1, y2, y3], fill);
     });
     document.getElementById('rButton').addEventListener('click', function(){
       var [x1, y1] = getPoint('r', 1);
       var [x2, y2] = getPoint('r', 2);
       var fill = isFill('r');
-      rectangle(x1, y1, x2, y2, fill);
+      polygon([x1, x1, x2, x2], [y1, y2, y2,y1], fill);
     });
 
     var points = 4;
