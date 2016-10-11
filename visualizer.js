@@ -131,6 +131,16 @@ function setBackgroundImage(bg){
       var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '">';
       document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
     });
+    document.getElementById('pButton').addEventListener('click', function(){
+      var xs = [];
+      var ys = [];
+      for (var i = 1; i <= points; i++){
+        xs.push(document.getElementById('pX' + i).value | 0);
+        ys.push(document.getElementById('pY' + i).value | 0);
+      }
+      var fill = document.getElementById('pFill').checked;
+      polygon(xs, ys, fill);
+    });
 
     var bg = {
       axis: true,
