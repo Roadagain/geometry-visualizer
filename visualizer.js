@@ -47,14 +47,20 @@ function setBackgroundImage(bg){
   c.style.backgroundImage = bgString;
 }
 
-function getPoint(shape, num){
+function getPoints(shape, num){
   'use strict';
 
   var cx = document.getElementById('c').width / 2;
   var cy = document.getElementById('c').height / 2;
-  var x = cx + Number(document.getElementById(shape + 'X' + num).value);
-  var y = cy - Number(document.getElementById(shape + 'Y' + num).value);
-  return [x, y];
+  var xs = [];
+  var ys = [];
+  for (var i = 1; i <= num; i++){
+    var x = cx + Number(document.getElementById(shape + 'X' + i).value);
+    var y = cy - Number(document.getElementById(shape + 'Y' + i).value);
+    xs.push(x);
+    ys.push(y);
+  }
+  return [xs, ys];
 }
 
 function isFill(shape){
@@ -70,28 +76,26 @@ function isFill(shape){
     // coordinateAxis();
     // grid();
     document.getElementById('lButton').addEventListener('click', function(){
-      var [x1, y1] = getPoint('l', 1);
-      var [x2, y2] = getPoint('l', 2);
-      line(x1, y1, x2, y2);
+      var [xs, ys] = getPoints('l', 2);
+      line(xs[0], ys[0], xs[1], ys[1]);
     });
     document.getElementById('cButton').addEventListener('click', function(){
-      var [x, y] = getPoint('c', '');
+      var [xs, ys] = getPoints('c', 1);
       var r = document.getElementById('cR').value;
       var fill = isFill('c');
-      circle(x, y, r, fill);
+      circle(xs[0], ys[0], r, fill);
     });
     document.getElementById('tButton').addEventListener('click', function(){
-      var [x1, y1] = getPoint('t', 1);
-      var [x2, y2] = getPoint('t', 2);
-      var [x3, y3] = getPoint('t', 3);
+      var [xs, ys] = getPoints('t', 3);
       var fill = isFill('t');
-      polygon([x1, x2, x3], [y1, y2, y3], fill);
+      polygon(xs, ys, fill);
     });
     document.getElementById('rButton').addEventListener('click', function(){
-      var [x1, y1] = getPoint('r', 1);
-      var [x2, y2] = getPoint('r', 2);
+      var [xs, ys] = getPoints('r', 2);
       var fill = isFill('r');
-      polygon([x1, x1, x2, x2], [y1, y2, y2,y1], fill);
+      xs = [xs[0], xs[0], xs[1], xs[1]];
+      ys = ys.concat(ys.reverse());
+      polygon(xs, ys, fill);
     });
 
     var points = 4;
@@ -102,13 +106,7 @@ function isFill(shape){
       document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
     });
     document.getElementById('pButton').addEventListener('click', function(){
-      var xs = [];
-      var ys = [];
-      for (var i = 1; i <= points; i++){
-        var [x, y] = getPoint('p', i);
-        xs.push(x);
-        ys.push(y);
-      }
+      var [xs, ys] = getPoints('p', points);
       var fill = isFill('p');
       polygon(xs, ys, fill);
     });
