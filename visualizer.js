@@ -27,45 +27,34 @@ function circle(x, y, r, fill){
   c.stroke();
 }
 
-function triangle(x1, y1, x2, y2, x3, y3, fill){
+function polygon(xs, ys, fill){
   'use strict';
 
   var c = document.getElementById('c').getContext('2d');
   c.beginPath();
-  x1 += 250;
-  y1 = -y1 + 250;
-  x2 += 250;
-  y2 = -y2 + 250;
-  x3 += 250;
-  y3 = -y3 + 250;
-  c.moveTo(x1, y1);
-  c.lineTo(x2, y2);
-  c.lineTo(x3, y3);
-  c.lineTo(x1, y1);
+  xs = xs.map(function(x){ return x + 250; });
+  ys = ys.map(function(y){ return -y + 250; });
+  c.moveTo(xs[0], ys[0]);
+  for (var i = 1; i < xs.length; i++){
+    c.lineTo(xs[i], ys[i]);
+  }
+  c.lineTo(xs[0], ys[0]);
   if (fill){
     c.fill();
   }
   c.stroke();
 }
 
+function triangle(x1, y1, x2, y2, x3, y3, fill){
+  'use strict';
+
+  polygon([x1, x2, x3], [y1, y2, y3], fill);
+}
+
 function rectangle(x1, y1, x2, y2, fill){
   'use strict';
 
-  var c = document.getElementById('c').getContext('2d');
-  c.beginPath();
-  x1 += 250;
-  y1 = -y1 + 250;
-  x2 += 250;
-  y2 = -y2 + 250;
-  c.moveTo(x1, y1);
-  c.lineTo(x2, y1);
-  c.lineTo(x2, y2);
-  c.lineTo(x1, y2);
-  c.lineTo(x1, y1);
-  if (fill){
-    c.fill();
-  }
-  c.stroke();
+  polygon([x1, x2, x2, x1], [y1, y1, y2, y2], fill);
 }
 
 function coordinateAxis(){
@@ -133,6 +122,24 @@ function setBackgroundImage(bg){
       var y2 = document.getElementById('rY2').value | 0;
       var fill = document.getElementById('rFill').checked;
       rectangle(x1, y1, x2, y2, fill);
+    });
+
+    var points = 4;
+    document.getElementById('pAdd').addEventListener('click', function(){
+      points++;
+      var formX = 'x<sub>' + points + '</sub>:<input type="number" id="pX' + points + '">';
+      var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '">';
+      document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
+    });
+    document.getElementById('pButton').addEventListener('click', function(){
+      var xs = [];
+      var ys = [];
+      for (var i = 1; i <= points; i++){
+        xs.push(document.getElementById('pX' + i).value | 0);
+        ys.push(document.getElementById('pY' + i).value | 0);
+      }
+      var fill = document.getElementById('pFill').checked;
+      polygon(xs, ys, fill);
     });
 
     var bg = {
