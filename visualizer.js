@@ -80,8 +80,8 @@ function setBackgroundImage(bg){
 function getPoint(shape, num){
   'use strict';
 
-  var cx = document.getElementById('c').width;
-  var cy = document.getElementById('c').height;
+  var cx = document.getElementById('c').width / 2;
+  var cy = document.getElementById('c').height / 2;
   var x = cx + Number(document.getElementById(shape + 'X' + num).value);
   var y = cy - Number(document.getElementById(shape + 'Y' + num).value);
   return [x, y];
