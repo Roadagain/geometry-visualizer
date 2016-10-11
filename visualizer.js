@@ -87,6 +87,12 @@ function getPoint(shape, num){
   return [x, y];
 }
 
+function isFill(shape){
+  'use strict';
+
+  return document.getElementById(shape + 'Fill').checked;
+}
+
 (function(){
   'use strict';
 
@@ -101,20 +107,20 @@ function getPoint(shape, num){
     document.getElementById('cButton').addEventListener('click', function(){
       var [x, y] = getPoint('c', '');
       var r = document.getElementById('cR').value;
-      var fill = document.getElementById('cFill').checked;
+      var fill = isFill('c');
       circle(x, y, r, fill);
     });
     document.getElementById('tButton').addEventListener('click', function(){
       var [x1, y1] = getPoint('t', 1);
       var [x2, y2] = getPoint('t', 2);
       var [x3, y3] = getPoint('t', 3);
-      var fill = document.getElementById('tFill').checked;
+      var fill = isFill('t');
       triangle(x1, y1, x2, y2, x3, y3, fill);
     });
     document.getElementById('rButton').addEventListener('click', function(){
       var [x1, y1] = getPoint('r', 1);
       var [x2, y2] = getPoint('r', 2);
-      var fill = document.getElementById('rFill').checked;
+      var fill = isFill('r');
       rectangle(x1, y1, x2, y2, fill);
     });
 
@@ -133,7 +139,7 @@ function getPoint(shape, num){
         xs.push(x);
         ys.push(y);
       }
-      var fill = document.getElementById('pFill').checked;
+      var fill = isFill('p');
       polygon(xs, ys, fill);
     });
 
