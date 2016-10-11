@@ -92,34 +92,34 @@ function setBackgroundImage(bg){
     // coordinateAxis();
     // grid();
     document.getElementById('lButton').addEventListener('click', function(){
-      var x1 = document.getElementById('lX1').value | 0;
-      var y1 = document.getElementById('lY1').value | 0;
-      var x2 = document.getElementById('lX2').value | 0;
-      var y2 = document.getElementById('lY2').value | 0;
+      var x1 = document.getElementById('lX1').value;
+      var y1 = document.getElementById('lY1').value;
+      var x2 = document.getElementById('lX2').value;
+      var y2 = document.getElementById('lY2').value;
       line(x1, y1, x2, y2);
     });
     document.getElementById('cButton').addEventListener('click', function(){
-      var x = document.getElementById('cX').value | 0;
-      var y = document.getElementById('cY').value | 0;
-      var r = document.getElementById('cR').value | 0;
+      var x = document.getElementById('cX').value;
+      var y = document.getElementById('cY').value;
+      var r = document.getElementById('cR').value;
       var fill = document.getElementById('cFill').checked;
       circle(x, y, r, fill);
     });
     document.getElementById('tButton').addEventListener('click', function(){
-      var x1 = document.getElementById('tX1').value | 0;
-      var y1 = document.getElementById('tY1').value | 0;
-      var x2 = document.getElementById('tX2').value | 0;
-      var y2 = document.getElementById('tY2').value | 0;
-      var x3 = document.getElementById('tX3').value | 0;
-      var y3 = document.getElementById('tY3').value | 0;
+      var x1 = document.getElementById('tX1').value;
+      var y1 = document.getElementById('tY1').value;
+      var x2 = document.getElementById('tX2').value;
+      var y2 = document.getElementById('tY2').value;
+      var x3 = document.getElementById('tX3').value;
+      var y3 = document.getElementById('tY3').value;
       var fill = document.getElementById('tFill').checked;
       triangle(x1, y1, x2, y2, x3, y3, fill);
     });
     document.getElementById('rButton').addEventListener('click', function(){
-      var x1 = document.getElementById('rX1').value | 0;
-      var y1 = document.getElementById('rY1').value | 0;
-      var x2 = document.getElementById('rX2').value | 0;
-      var y2 = document.getElementById('rY2').value | 0;
+      var x1 = document.getElementById('rX1').value;
+      var y1 = document.getElementById('rY1').value;
+      var x2 = document.getElementById('rX2').value;
+      var y2 = document.getElementById('rY2').value;
       var fill = document.getElementById('rFill').checked;
       rectangle(x1, y1, x2, y2, fill);
     });
