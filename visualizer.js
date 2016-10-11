@@ -124,6 +124,14 @@ function setBackgroundImage(bg){
       rectangle(x1, y1, x2, y2, fill);
     });
 
+    var points = 4;
+    document.getElementById('pAdd').addEventListener('click', function(){
+      points++;
+      var formX = 'x<sub>' + points + '</sub>:<input type="number" id="pX' + points + '">';
+      var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '">';
+      document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
+    });
+
     var bg = {
       axis: true,
       scale: true,
