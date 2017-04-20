@@ -75,6 +75,15 @@ function isFill(shape){
   window.addEventListener('load', function(){
     // coordinateAxis();
     // grid();
+
+    // initialize coordinates by 0
+    var inputs = document.getElementsByTagName("input");
+    Object.keys(inputs).filter(function(key){
+      return key.match(/^.[XYR][0-9]?$/);
+    }).forEach(function(key){
+      inputs[key].value = 0;
+    });
+
     document.getElementById('lButton').addEventListener('click', function(){
       var [xs, ys] = getPoints('l', 2);
       line(xs[0], ys[0], xs[1], ys[1]);
@@ -102,8 +111,8 @@ function isFill(shape){
     document.getElementById('pAdd').addEventListener('click', function(){
       var [xs, ys] = getPoints('p', points);
       points++;
-      var formX = 'x<sub>' + points + '</sub>:<input type="number" id="pX' + points + '">';
-      var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '">';
+      var formX = 'x<sub>' + points + '</sub>:<input type="number" id="pX' + points + '" value="0">';
+      var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '" value="0">';
       document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
 
       // repair points
