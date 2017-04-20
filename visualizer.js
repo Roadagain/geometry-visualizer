@@ -100,10 +100,19 @@ function isFill(shape){
 
     var points = 4;
     document.getElementById('pAdd').addEventListener('click', function(){
+      var [xs, ys] = getPoints('p', points);
       points++;
       var formX = 'x<sub>' + points + '</sub>:<input type="number" id="pX' + points + '">';
       var formY = 'y<sub>' + points + '</sub>:<input type="number" id="pY' + points + '">';
       document.getElementById('pPoints').innerHTML += formX + formY + '<br>';
+
+      // repair points
+      var cx = document.getElementById('c').width / 2;
+      var cy = document.getElementById('c').height / 2;
+      for (var i = 1; i < points; i++){
+        document.getElementById("pX" + i).value = xs[i - 1] - cx;
+        document.getElementById("pY" + i).value = cy - ys[i - 1];
+      }
     });
     document.getElementById('pButton').addEventListener('click', function(){
       var [xs, ys] = getPoints('p', points);
